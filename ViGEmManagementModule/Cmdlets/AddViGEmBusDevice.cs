@@ -1,8 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
 using System.Management.Automation;
-using System.Runtime.InteropServices;
 using Nefarius.Devcon;
 using ViGEmManagementModule.Core;
 
@@ -34,9 +32,9 @@ namespace ViGEmManagementModule.Cmdlets
             else
             {
                 ThrowTerminatingError(new ErrorRecord(
-                    new Win32Exception(Marshal.GetLastWin32Error()),
-                    "Win32Exception",
-                    ErrorCategory.DeviceError,
+                    new UnauthorizedAccessException("You require administrative privileges for this action."),
+                    "UnauthorizedAccessException",
+                    ErrorCategory.PermissionDenied,
                     HardwareId));
             }
         }
