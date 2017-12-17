@@ -22,14 +22,35 @@ namespace ViGEmManagementModule.Cmdlets
         [Parameter]
         public bool Online { get; set; } = true;
 
-        private Uri SourceUrl =>
+        [Parameter]
+        public Uri SourceUrl { get; set; }
+
+        private static Uri DefaultSourceUrl =>
             new Uri(
                 "https://downloads.vigem.org/stable/latest/windows/x86_64/ViGEmBus_signed_Win7-10_x86_x64_latest.zip");
 
         protected override void ProcessRecord()
         {
+            if (SourceUrl == null)
+                SourceUrl = DefaultSourceUrl;
+
             if (Online)
                 InstallFromOnlineSource();
+        }
+
+        private void InstallInf(string inf)
+        {
+            var ret = Devcon.Install(inf, out var rebootRequired);
+
+            if (!ret)
+                ThrowTerminatingError(new ErrorRecord(
+                    new Win32Exception(Marshal.GetLastWin32Error()),
+                    "Win32Exception",
+                    ErrorCategory.InvalidOperation,
+                    inf));
+
+            if (rebootRequired)
+                WriteWarning("A reboot is required for the changes to take effect.");
         }
 
         private void InstallFromOnlineSource()
@@ -37,9 +58,7 @@ namespace ViGEmManagementModule.Cmdlets
             _evts = new WaitHandle[] {_completedEvt, _progressEvt};
 
             var localArchive = Path.GetTempFileName();
-            var localTempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-            Directory.CreateDirectory(localTempPath);
-
+            
             var client = new WebClient();
 
             using (client.OpenRead(SourceUrl))
@@ -81,48 +100,18 @@ namespace ViGEmManagementModule.Cmdlets
 
             client.Dispose();
 
+            var localTempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            if (!Directory.Exists(localTempPath)) Directory.CreateDirectory(localTempPath);
+
             try
             {
-                var difx = new Difx((type, code, description, context) =>
-                {
-                    switch (type)
-                    {
-                        case Difx.DifxLog.DIFXAPI_ERROR:
-                            //WriteError(new ErrorRecord());
-                            break;
-                        case Difx.DifxLog.DIFXAPI_WARNING:
-                            WriteWarning(description);
-                            break;
-                        case Difx.DifxLog.DIFXAPI_INFO:
-                        case Difx.DifxLog.DIFXAPI_SUCCESS:
-                            WriteVerbose(description);
-                            break;
-                    }
-                });
-
                 ZipFile.ExtractToDirectory(localArchive, localTempPath);
                 File.Delete(localArchive);
 
                 var inf = Path.Combine(localTempPath, Environment.Is64BitOperatingSystem ? "x64" : "x86",
                     "ViGEmBus.inf");
-                WriteWarning(inf);
 
-                /*
-                var ret = difx.Install(inf, 
-                    Difx.DifxFlags.DRIVER_PACKAGE_SILENT | Difx.DifxFlags.DRIVER_PACKAGE_FORCE,
-                    out var rebootRequired);
-                    */
-                var ret = Devcon.Install(inf, out var rebootRequired);
-
-                if (!ret)
-                    ThrowTerminatingError(new ErrorRecord(
-                        new Win32Exception(Marshal.GetLastWin32Error()),
-                        "Win32Exception",
-                        ErrorCategory.InvalidOperation,
-                        inf));
-
-                if (rebootRequired)
-                    WriteWarning("A reboot is required for the changes to take effect.");
+                InstallInf(inf);
             }
             finally
             {
