@@ -13,6 +13,20 @@
     <AssemblyName>ViGEmManagementModule</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Version>1.13.1.0</Version>
+    <Authors>Benjamin Höglinger-Stelzer</Authors>
+    <Company>Benjamin Höglinger-Stelzer</Company>
+    <Copyright>Copyright © Benjamin "Nefarius" Höglinger 2017</Copyright>
+    <PackageLicenseUrl>https://github.com/nefarius/ViGEm/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/nefarius/ViGEm</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/nefarius/ViGEm/master/Installer/favicon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/nefarius/ViGEm</RepositoryUrl>
+    <PackageTags>driver bus-driver windows-driver gamepad joypad joystick emulation framework xinput xusb xbone dualshock4 kmdf</PackageTags>
+    <AssemblyVersion>1.13.1.0</AssemblyVersion>
+    <FileVersion>1.13.1.0</FileVersion>
+    <Product>ViGEm Management Module</Product>
+    <Description>PowerShell module for managing components of the ViGEm Framework.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,7 +40,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\Release\ViGEmManagementModule\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -56,5 +70,10 @@
     <PackageReference Include="Costura.Fody" Version="1.6.2" />
     <PackageReference Include="Microsoft.PowerShell.5.ReferenceAssemblies" Version="1.1.0" />
     <PackageReference Include="Nefarius.Devcon" Version="1.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="ViGEmManagementModule.psd1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
  </Project>
