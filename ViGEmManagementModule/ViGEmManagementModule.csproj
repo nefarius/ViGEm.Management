@@ -13,7 +13,7 @@
     <AssemblyName>ViGEmManagementModule</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Version>1.13.1.0</Version>
+    <Version>1.14.0.0</Version>
     <Authors>Benjamin Höglinger-Stelzer</Authors>
     <Company>Benjamin Höglinger-Stelzer</Company>
     <Copyright>Copyright © Benjamin "Nefarius" Höglinger 2017</Copyright>
@@ -22,8 +22,8 @@
     <PackageIconUrl>https://raw.githubusercontent.com/nefarius/ViGEm/master/Installer/favicon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/nefarius/ViGEm</RepositoryUrl>
     <PackageTags>driver bus-driver windows-driver gamepad joypad joystick emulation framework xinput xusb xbone dualshock4 kmdf</PackageTags>
-    <AssemblyVersion>1.13.1.0</AssemblyVersion>
-    <FileVersion>1.13.1.0</FileVersion>
+    <AssemblyVersion>1.14.0.0</AssemblyVersion>
+    <FileVersion>1.14.0.0</FileVersion>
     <Product>ViGEm Management Module</Product>
     <Description>PowerShell module for managing components of the ViGEm Framework.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
