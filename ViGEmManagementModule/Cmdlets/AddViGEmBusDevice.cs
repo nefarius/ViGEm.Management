@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Management.Automation;
 using Nefarius.Devcon;
 using ViGEmManagementModule.Core;
@@ -26,8 +25,6 @@ namespace ViGEmManagementModule.Cmdlets
             if (ret)
             {
                 WriteVerbose("Device node created successfully.");
-
-                ViGEmBusDevice.Devices.ToList().ForEach(WriteObject);
             }
             else
             {
