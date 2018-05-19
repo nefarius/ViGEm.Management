@@ -1,0 +1,5 @@
+version: 1.15.{build}
+image: Visual Studio 2017
+install:
+build_script:
+- ps: .\build.ps1 -configuration release
