@@ -1,4 +1,4 @@
-﻿@{
+@{
     RootModule = 'ViGEmManagementModule.dll'
     ModuleVersion = '1.14.0.0'
     CmdletsToExport = '*'
