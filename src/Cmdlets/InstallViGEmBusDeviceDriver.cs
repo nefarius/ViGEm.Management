@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Nefarius.Devcon;
 
-namespace ViGEmManagementModule.Cmdlets
+namespace ViGEm.Management.Cmdlets
 {
     [Cmdlet(VerbsLifecycle.Install, "ViGEmBusDeviceDriver")]
     public class InstallViGEmBusDeviceDriver : Cmdlet

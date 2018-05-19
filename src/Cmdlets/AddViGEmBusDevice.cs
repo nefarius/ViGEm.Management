@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Management.Automation;
 using Nefarius.Devcon;
-using ViGEmManagementModule.Core;
+using ViGEm.Management.Core;
 
-namespace ViGEmManagementModule.Cmdlets
+namespace ViGEm.Management.Cmdlets
 {
     [Cmdlet(VerbsCommon.Add, "ViGEmBusDevice")]
     [OutputType(typeof(ViGEmBusDevice))]

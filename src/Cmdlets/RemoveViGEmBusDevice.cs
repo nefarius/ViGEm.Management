@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Management.Automation;
 using Nefarius.Devcon;
-using ViGEmManagementModule.Core;
+using ViGEm.Management.Core;
 
-namespace ViGEmManagementModule.Cmdlets
+namespace ViGEm.Management.Cmdlets
 {
     [Cmdlet(VerbsCommon.Remove, "ViGEmBusDevice", DefaultParameterSetName = "ByInstanceId")]
     public class RemoveViGEmBusDevice : Cmdlet

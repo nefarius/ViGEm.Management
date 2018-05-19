@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Management.Automation;
-using ViGEmManagementModule.Core;
+using ViGEm.Management.Core;
 
-namespace ViGEmManagementModule.Cmdlets
+namespace ViGEm.Management.Cmdlets
 {
     [Cmdlet(VerbsCommon.Get, "ViGEmBusDevice")]
     [OutputType(typeof(ViGEmBusDevice))]

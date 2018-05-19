@@ -4,7 +4,7 @@ using System.Linq;
 using System.Management;
 using Nefarius.Devcon;
 
-namespace ViGEmManagementModule.Core
+namespace ViGEm.Management.Core
 {
     public class ViGEmBusDevice
     {
