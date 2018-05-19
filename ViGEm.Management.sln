@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = ".build", "build\.build.csproj", "{85F1F25A-2272-4A29-9888-AD1654D13C66}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViGEm.Management", "src\ViGEm.Management.csproj", "{4793CC4A-6448-48E0-AE26-B6BB5CCCBED8}"
 EndProject
 Global
@@ -11,6 +13,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85F1F25A-2272-4A29-9888-AD1654D13C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F1F25A-2272-4A29-9888-AD1654D13C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4793CC4A-6448-48E0-AE26-B6BB5CCCBED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4793CC4A-6448-48E0-AE26-B6BB5CCCBED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4793CC4A-6448-48E0-AE26-B6BB5CCCBED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
