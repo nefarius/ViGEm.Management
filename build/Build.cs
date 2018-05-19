@@ -59,5 +59,7 @@ class Build : NukeBuild
                 var psd1 = File.ReadAllText(path);
                 psd1 = psd1.Replace("MODULE_VERSION", AppVeyor.Instance.BuildVersion);
                 File.WriteAllText(path, psd1);
+
+                Console.WriteLine(psd1);
             });
 }
