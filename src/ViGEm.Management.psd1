@@ -1,6 +1,6 @@
 @{
     RootModule = 'ViGEmManagementModule.dll'
-    ModuleVersion = '1.14.0.0'
+    ModuleVersion = 'MODULE_VERSION'
     CmdletsToExport = '*'
     GUID = '8BC8443E-124A-4422-B2C9-B765024A56A2'
     DotNetFrameworkVersion = '4.5.2'

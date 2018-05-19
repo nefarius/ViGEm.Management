@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.BuildServers;
@@ -51,7 +52,12 @@ class Build : NukeBuild
                 MSBuild(s => DefaultMSBuildCompile
                     .SetAssemblyVersion(AppVeyor.Instance.BuildVersion)
                     .SetFileVersion(AppVeyor.Instance.BuildVersion)
-                    .SetInformationalVersion(AppVeyor.Instance.BuildVersion)
-                    .SetPackageVersion(AppVeyor.Instance.BuildVersion));
+                    .SetInformationalVersion(AppVeyor.Instance.BuildVersion));
+
+                // Stamp build version into PowerShell manifest
+                var path = @"bin\ViGEm.Management\ViGEm.Management.psd1";
+                var psd1 = File.ReadAllText(path);
+                psd1 = psd1.Replace("MODULE_VERSION", AppVeyor.Instance.BuildVersion);
+                File.WriteAllText(path, psd1);
             });
 }
