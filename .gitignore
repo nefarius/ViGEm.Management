@@ -1,1 +1,8 @@
 /bin
+/.tmp
+/.vs/ViGEm.Management/v15
+/build/bin/Debug
+/build/obj
+/src/bin/Release
+/src/obj
+*.DotSettings

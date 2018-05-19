@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nuke.Common;
+using Nuke.Common.BuildServers;
 using Nuke.Common.Git;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Tools.MSBuild;
@@ -47,6 +48,10 @@ class Build : NukeBuild
             .DependsOn(Restore)
             .Executes(() =>
             {
-                MSBuild(s => DefaultMSBuildCompile);
+                MSBuild(s => DefaultMSBuildCompile
+                    .SetAssemblyVersion(AppVeyor.Instance.BuildVersion)
+                    .SetFileVersion(AppVeyor.Instance.BuildVersion)
+                    .SetInformationalVersion(AppVeyor.Instance.BuildVersion)
+                    .SetPackageVersion(AppVeyor.Instance.BuildVersion));
             });
 }
