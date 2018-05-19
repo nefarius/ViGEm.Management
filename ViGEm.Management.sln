@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViGEm.Management", "ViGEmManagementModule\ViGEm.Management.csproj", "{4793CC4A-6448-48E0-AE26-B6BB5CCCBED8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViGEm.Management", "src\ViGEm.Management.csproj", "{4793CC4A-6448-48E0-AE26-B6BB5CCCBED8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
