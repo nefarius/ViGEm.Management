@@ -6,3 +6,4 @@
 /src/bin/Release
 /src/obj
 *.DotSettings
+/build/bin/Release
